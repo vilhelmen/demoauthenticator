@@ -18,6 +18,8 @@ c.Authenticator.user_password = 'userpass123'
 c.Authenticator.admin_password = 'adminpassword'
 ```
 
+Or just dump the class into your JH config file, it probably works.
+
 The admin password must be set to create admin-level accounts.
 
 If the user and admin passwords are the same, only users will be created.
