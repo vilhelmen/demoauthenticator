@@ -4,7 +4,7 @@ Tweaked DummyAuthenticator to allow for users and admins via configurable passwo
 
 Useful for demo/tutorial days.
 
-Needs JH 1.0 because that's when I added 'admin' to the autentication dict.
+Needs JH 1.0 because that's when I added 'admin' to the authentication dict.
 
 Install:
 ```
