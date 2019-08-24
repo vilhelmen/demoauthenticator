@@ -5,6 +5,7 @@ setup(
     version='0.1',
     install_requires=[
         'jupyterhub>=1.0',
+        'traitlets>=4.3.2',
     ],
     python_requires='>=3.5',
     description='JupyterHub Demo Spawner',

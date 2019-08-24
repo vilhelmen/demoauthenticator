@@ -1,4 +1,5 @@
 from jupyterhub.auth import DummyAuthenticator
+from traitlets import Bool, Integer, Set, Unicode, Dict, Any, default, observe
 
 
 class DemoAuthenticator(DummyAuthenticator):
