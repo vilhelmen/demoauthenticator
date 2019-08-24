@@ -47,7 +47,7 @@ class DemoAuthenticator(DummyAuthenticator):
                     # REJECT, breakin attemp
                     self.log.warning('%s (admin) login attempt with user password!', data['username'])
                     login_state = None
-                else
+                else:
                     self.log.debug('%s logging in as user', data['username'])
             else:
                 self.log.debug('%s login rejected', data['username'])
