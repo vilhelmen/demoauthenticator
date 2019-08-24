@@ -33,11 +33,15 @@ class DemoAuthenticator(DummyAuthenticator):
         login_state = {'name': data['username'], 'admin': False}
 
         if self.admin_password and data['password'] == self.admin_password and data['password'] != self.password:
+            self.log.debug('%s logging in as admin', data['username'])
             login_state['admin'] = True
             return login_state
 
         if self.password:
             if data['password'] != self.password:
+                self.log.debug('%s login rejected', data['username'])
                 login_state = None
+            else:
+                self.log.debug('%s logging in as user', data['username'])
 
         return login_state
