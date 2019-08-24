@@ -1,7 +1,7 @@
 from jupyterhub.auth import DummyAuthenticator
 
 
-class DemoAuthenticator(Authenticator):
+class DemoAuthenticator(DummyAuthenticator):
     """Dummy Authenticator for demos
 
     Allows passwords for user-level accounts and admin-level.
@@ -9,7 +9,7 @@ class DemoAuthenticator(Authenticator):
     If both passwords are the same, users are created, NOT admins.
     """
 
-    user_password = Unicode(
+    password = Unicode(
         config=True,
         help="""
         Set a global password for all users wanting to log in.
@@ -31,12 +31,12 @@ class DemoAuthenticator(Authenticator):
         """Checks global passwords for user/admin logins"""
         login_state = {'name': data['username'], 'admin': False}
 
-        if self.admin_password and data['password'] == self.admin_password and data['password'] != self.user_password:
+        if self.admin_password and data['password'] == self.admin_password and data['password'] != self.password:
             login_state['admin'] = True
             return login_state
 
-        if self.user_password:
-            if data['password'] != self.user_password:
+        if self.password:
+            if data['password'] != self.password:
                 login_state = None
 
         return login_state
