@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='jupyterhub-demoauthenticator',
-    version='0.1',
+    version='1.0',
     install_requires=[
         'jupyterhub>=1.0',
         'traitlets>=4.3.2',
