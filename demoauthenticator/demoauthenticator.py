@@ -41,7 +41,7 @@ class DemoAuthenticator(DummyAuthenticator):
                 self.log.debug('%s (user) logging attempt with admin password', data['username'])
                 login_state = None
             else:
-                self.log.debug('%s logging in as admin', data['username']):
+                self.log.debug('%s logging in as admin', data['username'])
                 login_state['admin'] = True
             return login_state
 
