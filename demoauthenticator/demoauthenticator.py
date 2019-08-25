@@ -36,20 +36,18 @@ class DemoAuthenticator(DummyAuthenticator):
         user_lookup = orm.User.find(db=self.db, name=self.normalize_username(data['username']))
         user_exists = user_lookup is not None
 
-        admin_login = self.admin_password and data['password'] == self.admin_password and data['password'] != self.password
-
-        if admin_login:
+        if self.admin_password and data['password'] == self.admin_password and data['password'] != self.password:
             if user_exists and not user_lookup.admin:
                 self.log.debug('%s (user) logging attempt with admin password', data['username'])
                 login_state = None
-            else self.log.debug('%s logging in as admin', data['username']):
+            else:
+                self.log.debug('%s logging in as admin', data['username']):
                 login_state['admin'] = True
             return login_state
 
         if self.password:
             if data['password'] == self.password:
                 if user_exists and user_lookup.admin:
-                    # REJECT, breakin attemp
                     self.log.warning('%s (admin) login attempt with user password!', data['username'])
                     login_state = None
                 else:
